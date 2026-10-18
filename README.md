@@ -50,4 +50,4 @@ Syarat: tata letak semirip mungkin dengan desain, responsif untuk HP, tablet, da
 - [Mengganti logo pengganti dengan logo asli dari Figma]
 - [Menyesuaikan nama file gambar dan memindahkannya ke folder gambar]
 - [Menyesuaikan teks pada chip filter dan data kartu]
-- [Perbaikan lain yang kamu buat sendiri]
+- [Perbaikan pada index html]
