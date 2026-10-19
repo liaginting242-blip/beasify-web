@@ -7,6 +7,7 @@ Prototipe web interaktif platform informasi beasiswa. Tugas Vinix Batch 5 Modul 
 
 ## Fitur
 - Landing page dengan pop-up modal
+- Halaman login pendaftar & mitra
 - Halaman utama daftar beasiswa
 - Menu samping (hamburger) yang bisa dibuka dan ditutup
 - Pencarian beasiswa
@@ -47,7 +48,7 @@ Semua file harus tetap berada dalam satu folder, dan folder gambar harus ikut ad
 | Nama | GitHub | Kontribusi |
 |---|---|---|
 | Apriliana G Munthe | liaginting242-blip | Landing page, halaman utama, pengelolaan repo GitHub, README |
-| Maurida Nuzul Khasanah | mauridaanuzulk-pixel| [Isi kontribusi] |
+| Maurida Nuzul Khasanah | mauridaanuzulk-pixel| Halaman login pendaftar & mitra |
 | [Nama anggota 3] | [username GitHub] | [Isi kontribusi] |
 
 ## Log prompt AI
