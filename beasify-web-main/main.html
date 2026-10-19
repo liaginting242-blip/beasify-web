@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beasify - Daftar Beasiswa</title>
+  <meta name="description" content="Cari beasiswa berdasarkan nama, instansi, jenjang, dan syarat. Simpan yang kamu minati.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header main-header" id="header">
+    <div class="container header-bar">
+      <button type="button" class="hamburger" id="tombol-menu" aria-label="Buka menu" aria-expanded="false" aria-controls="menu-samping">
+        <svg viewBox="0 0 58 46" aria-hidden="true">
+          <rect y="0" width="58" height="8" rx="3" fill="#000"/>
+          <rect y="19" width="58" height="8" rx="3" fill="#000"/>
+          <rect y="38" width="58" height="8" rx="3" fill="#000"/>
+        </svg>
+      </button>
+
+      <a class="logo" href="index.html" aria-label="Beasify, ke halaman awal">
+        <!-- Ganti dengan logo asli bila sudah ada: <img src="gambar/logo-beasify.png" alt="Beasify" height="64"> -->
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M6 4h20c8 0 13 4 13 10 0 4-2 7-6 8 5 1 8 4 8 9 0 7-6 13-15 13H6z" fill="#fff"/>
+          <path d="M20 14l2.2 5.8L28 22l-5.8 2.2L20 30l-2.2-5.8L12 22l5.8-2.2z" fill="#9FD0E6"/>
+        </svg>
+        <span class="logo-text">Beasify</span>
+      </a>
+
+      <span class="avatar" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <!-- MENU SAMPING -->
+  <div class="layar-gelap" id="layar-gelap"></div>
+  <nav class="menu-samping" id="menu-samping" aria-label="Menu utama">
+    <ul>
+      <li><button type="button" data-aksi="home">Home</button></li>
+      <li><button type="button" data-aksi="bookmark">Bookmark</button></li>
+      <li><button type="button" data-aksi="belum">Status apply</button></li>
+      <li><button type="button" data-aksi="belum">Settings</button></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+
+    <!-- PENCARIAN DAN FILTER -->
+    <div class="toolbar-wrap">
+      <div class="toolbar">
+        <div class="kolom-cari">
+          <label class="sr-only" for="cari">Cari beasiswa atau instansi</label>
+          <input type="search" id="cari" placeholder="Cari Beasiswa, Instansi, ...." autocomplete="off">
+          <svg class="ikon-cari" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="M20 20l-4.6-4.6"/></svg>
+        </div>
+
+        <button type="button" class="tombol-filter" id="tombol-filter" aria-label="Buka filter" aria-expanded="false" aria-controls="panel-filter">
+          <svg viewBox="0 0 40 30" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M3 4h34M9 13h22M16 22h8"/></svg>
+        </button>
+      </div>
+
+      <!-- Panel filter -->
+      <section class="panel-filter" id="panel-filter" aria-label="Filter beasiswa" hidden>
+        <div class="kolom-kiri">
+          <div class="grup" role="group" aria-labelledby="l-jenjang">
+            <h3 id="l-jenjang">Jenjang</h3>
+            <div class="chips">
+              <button type="button" class="chip" data-grup="jenjang" data-nilai="S1" aria-pressed="false">S1</button>
+              <button type="button" class="chip" data-grup="jenjang" data-nilai="S2" aria-pressed="false">S2</button>
+              <button type="button" class="chip" data-grup="jenjang" data-nilai="S3" aria-pressed="false">S3</button>
+            </div>
+          </div>
+
+          <div class="grup" role="group" aria-labelledby="l-dana">
+            <h3 id="l-dana">Tipe Pendanaan</h3>
+            <div class="chips">
+              <button type="button" class="chip" data-grup="pendanaan" data-nilai="Fully Funded" aria-pressed="false">Fully Funded</button>
+              <button type="button" class="chip" data-grup="pendanaan" data-nilai="Partial" aria-pressed="false">Partial</button>
+              <button type="button" class="chip" data-grup="pendanaan" data-nilai="Uang Saku" aria-pressed="false">Uang Saku</button>
+            </div>
+          </div>
+
+          <div class="grup" role="group" aria-labelledby="l-lokasi">
+            <h3 id="l-lokasi">Cakupan lokasi</h3>
+            <div class="chips">
+              <button type="button" class="chip" data-grup="lokasi" data-nilai="Dalam Negeri" aria-pressed="false">Dalam Negeri</button>
+              <button type="button" class="chip" data-grup="lokasi" data-nilai="Luar Negeri" aria-pressed="false">Luar Negeri</button>
+              <button type="button" class="chip" data-grup="lokasi" data-nilai="Online" aria-pressed="false">Online</button>
+            </div>
+          </div>
+
+          <div class="grup">
+            <h3><label for="bidang">Bidang studi</label></h3>
+            <select id="bidang" class="pilihan">
+              <option value="">Semua bidang</option>
+              <option>Teknik</option>
+              <option>Ekonomi dan Bisnis</option>
+              <option>Sains</option>
+              <option>Teknologi Informasi</option>
+              <option>Kesehatan</option>
+            </select>
+          </div>
+
+          <div class="grup" role="group" aria-labelledby="l-status">
+            <h3 id="l-status">Status pendaftaran</h3>
+            <div class="chips">
+              <button type="button" class="chip" data-grup="status" data-nilai="Dibuka" aria-pressed="false">Dibuka</button>
+              <button type="button" class="chip" data-grup="status" data-nilai="Segera Ditutup" aria-pressed="false">Segera Ditutup</button>
+              <button type="button" class="chip" data-grup="status" data-nilai="Ditutup" aria-pressed="false">Ditutup</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="kolom-kanan">
+          <div class="grup" role="group" aria-labelledby="l-ipk">
+            <h3 id="l-ipk">Syarat IPK</h3>
+            <div class="chips">
+              <button type="button" class="chip" data-grup="ipk" data-nilai="3.00" aria-pressed="false">Min. 3.00</button>
+              <button type="button" class="chip" data-grup="ipk" data-nilai="3.50" aria-pressed="false">Min. 3.50</button>
+            </div>
+          </div>
+
+          <div class="grup" role="group" aria-labelledby="l-bahasa">
+            <h3 id="l-bahasa">Sertifikat bahasa</h3>
+            <div class="chips">
+              <button type="button" class="chip" data-grup="bahasa" data-nilai="Wajib" aria-pressed="false">Wajib</button>
+              <button type="button" class="chip" data-grup="bahasa" data-nilai="Tidak wajib" aria-pressed="false">Tidak wajib</button>
+            </div>
+          </div>
+
+          <div class="aksi">
+            <button type="button" class="btn btn-biru" id="tombol-reset">Reset</button>
+            <button type="button" class="btn btn-biru" id="tombol-terapkan">Cari</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- DAFTAR BEASISWA -->
+    <h1 class="judul-halaman sr-only" id="judul">Daftar beasiswa</h1>
+    <p class="sr-only" id="status-hasil" aria-live="polite"></p>
+
+    <section class="daftar" id="daftar" aria-labelledby="judul"></section>
+
+    <div class="kosong" id="kosong" hidden>
+      <h2 id="kosong-judul">Data Tidak Ditemukan</h2>
+      <p id="kosong-teks">Tidak ada beasiswa yang cocok. Coba ubah kata kunci atau filter.</p>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
